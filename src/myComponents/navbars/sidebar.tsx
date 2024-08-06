@@ -20,7 +20,7 @@ export default function MySidebar() {
           </div>
         </div>
         <div>
-          <SidebarLink
+          {/* <SidebarLink
             navItem={{
               label: "Hardik Garg",
               href: "#",
@@ -34,7 +34,8 @@ export default function MySidebar() {
                 />
               ),
             }}
-          />
+          /> */}
+          Profile section
         </div>
       </SidebarBody>
     </Sidebar>
