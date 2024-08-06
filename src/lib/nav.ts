@@ -1,24 +1,78 @@
+import {
+  IconArrowLeft,
+  IconBedFilled,
+  IconBrandTabler,
+  IconBuildings,
+  IconBuildingSkyscraper,
+  IconDesk,
+  IconToolsKitchen2,
+  IconUserBolt,
+} from "@tabler/icons-react";
+import { BiFoodMenu } from "react-icons/bi";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { IoIosRestaurant } from "react-icons/io";
+
 export const getNavItems = () => {
   return [
     {
+      label: "hello",
+      href: "/hello",
+      icon: IconBrandTabler,
+    },
+    {
       label: "Dashboard",
-      href: "#",
-      icon: "IconBrandTabler",
+      href: "/",
+      icon: IconBrandTabler,
     },
     {
       label: "Profile",
       href: "#",
-      icon: "IconUserBolt",
+      icon: IconUserBolt,
     },
     {
-      label: "Settings",
-      href: "#",
-      icon: "IconSettings",
+      label: "All Hotels",
+      href: "/hotels",
+      icon: IconBuildings,
     },
     {
-      label: "Logout",
+      label: "Hotel",
       href: "#",
-      icon: "IconArrowLeft",
+      icon: IconBuildingSkyscraper,
+    },
+    {
+      label: "Rooms",
+      href: "#",
+      icon: IconBedFilled,
+    },
+    {
+      label: "Bookings",
+      href: "#",
+      icon: FaRegCalendarAlt,
+    },
+    {
+      label: "All Restautants",
+      href: "#",
+      icon: IoIosRestaurant,
+    },
+    {
+      label: "Restautant",
+      href: "#",
+      icon: IconToolsKitchen2,
+    },
+    {
+      label: "Floor and Tables",
+      href: "#",
+      icon: IconDesk,
+    },
+    {
+      label: "Menu",
+      href: "#",
+      icon: BiFoodMenu,
+    },
+    {
+      label: "Reservations",
+      href: "#",
+      icon: FaRegCalendarAlt,
     },
   ];
 };
