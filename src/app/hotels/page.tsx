@@ -1,15 +1,23 @@
 import { getAllHotels } from "@/lib/hotels";
+import MyTable from "@/myComponents/table/table";
+import { access } from "fs";
+
+const columns = [
+  {
+    accessor: "title",
+    header: "Title",
+  },
+  {
+    accessor: "desc",
+    header: "Description",
+  },
+];
 
 const HotelsPage = async () => {
   const hotels = await getAllHotels();
   return (
     <div>
-      {hotels.map((hotel: any) => (
-        <div key={hotel.slug}>
-          <h1>{hotel.title}</h1>
-          {/* <p>{hotel.description}</p> */}
-        </div>
-      ))}
+      <MyTable data={hotels} columns={columns} />
     </div>
   );
 };
