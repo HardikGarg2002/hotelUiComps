@@ -4,6 +4,10 @@ import { access } from "fs";
 
 const columns = [
   {
+    accessor: "slug",
+    header: "Slug",
+  },
+  {
     accessor: "title",
     header: "Title",
   },
@@ -11,13 +15,22 @@ const columns = [
     accessor: "desc",
     header: "Description",
   },
+  {
+    accessor: "address",
+    header: "Address",
+  },
 ];
 
 const HotelsPage = async () => {
   const hotels = await getAllHotels();
+  const updatedHotels = hotels.map((hotel: any) => ({
+    ...hotel,
+    address: hotel.address.street,
+  }));
+
   return (
-    <div>
-      <MyTable data={hotels} columns={columns} />
+    <div className="rounded-xl ">
+      <MyTable data={updatedHotels} columns={columns} />
     </div>
   );
 };
