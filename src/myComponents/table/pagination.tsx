@@ -13,11 +13,18 @@ import {
   ChevronLeftIcon,
   DoubleArrowRightIcon,
 } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export const MyPagination = ({ totalCount }: { totalCount: number }) => {
-  const [pageSize, setPageSize] = useState(10);
-  const [page, setPage] = useState(1);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const urlPage = searchParams.get("page") ?? "1";
+  const urlPageSize = searchParams.get("pageSize") ?? "10";
+
+  const page = +urlPage;
+  const pageSize = +urlPageSize;
   const pageCount = Math.ceil(totalCount / pageSize);
   return (
     <div className="flex items-center justify-between px-2">
@@ -30,7 +37,7 @@ export const MyPagination = ({ totalCount }: { totalCount: number }) => {
           <Select
             value={`${pageSize}`}
             onValueChange={(value) => {
-              setPageSize(Number(value));
+              router.push(`${pathname}/?page=${1}&pageSize=${Number(value)}`);
             }}
           >
             <SelectTrigger className="h-8 w-[70px]">
@@ -52,7 +59,10 @@ export const MyPagination = ({ totalCount }: { totalCount: number }) => {
           <Button
             variant="outline"
             className="hidden h-8 w-8 p-0 lg:flex"
-            onClick={() => setPage(1)}
+            // onClick={() => setPage(1)}
+            onClick={() => {
+              router.push(`${pathname}/?page=${1}&pageSize=${urlPageSize}`);
+            }}
             disabled={page === 1}
           >
             <span className="sr-only">Go to first page</span>
@@ -61,7 +71,13 @@ export const MyPagination = ({ totalCount }: { totalCount: number }) => {
           <Button
             variant="outline"
             className="h-8 w-8 p-0"
-            onClick={() => setPage(page - 1)}
+            onClick={() => {
+              router.push(
+                `${pathname}/?page=${
+                  Number(urlPage) - 1
+                }&pageSize=${urlPageSize}`
+              );
+            }}
             disabled={page === 1}
           >
             <span className="sr-only">Go to previous page</span>
@@ -70,7 +86,13 @@ export const MyPagination = ({ totalCount }: { totalCount: number }) => {
           <Button
             variant="outline"
             className="h-8 w-8 p-0"
-            onClick={() => setPage(page + 1)}
+            onClick={() => {
+              router.push(
+                `${pathname}/?page=${
+                  Number(urlPage) + 1
+                }&pageSize=${urlPageSize}`
+              );
+            }}
             disabled={page === pageCount}
           >
             <span className="sr-only">Go to next page</span>
@@ -79,7 +101,11 @@ export const MyPagination = ({ totalCount }: { totalCount: number }) => {
           <Button
             variant="outline"
             className="hidden h-8 w-8 p-0 lg:flex"
-            onClick={() => setPage(pageCount)}
+            onClick={() => {
+              router.push(
+                `${pathname}/?page=${Number(urlPage)}&pageSize=${urlPageSize}`
+              );
+            }}
             disabled={page === pageCount}
           >
             <span className="sr-only">Go to last page</span>
