@@ -41,7 +41,7 @@ export const getNavItems = () => {
     },
     {
       label: "Rooms",
-      href: "#",
+      href: "/room",
       icon: IconBedFilled,
     },
     {
@@ -71,6 +71,11 @@ export const getNavItems = () => {
     },
     {
       label: "Reservations",
+      href: "#",
+      icon: FaRegCalendarAlt,
+    },
+    {
+      label: "Kitchen Order tickets",
       href: "#",
       icon: FaRegCalendarAlt,
     },
