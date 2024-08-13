@@ -52,7 +52,7 @@ const RoomsPage = async ({
 
   return (
     <>
-      <NavTabs tabs={navTabs} defaultTab="All" />
+      <NavTabs tabs={navTabs} defaultTab="All" className="w-[60%]" />
       <div className="rounded-xl ">
         <MyTable data={updatedRooms} columns={columns} />
       </div>
