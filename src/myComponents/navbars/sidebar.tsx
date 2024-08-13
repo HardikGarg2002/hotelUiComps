@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "../../components/ui/sidebar";
+import { Sidebar, SidebarBody } from "../../components/ui/sidebar";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Logo1 } from "../logo/logo1";
 import { getNavItems } from "@/lib/nav";
+import { MySidebarLink } from "./sidebarLink";
 
 export default function MySidebar() {
   const navItems = getNavItems();
@@ -15,7 +16,7 @@ export default function MySidebar() {
           <Logo1 />
           <div className="mt-8 flex flex-col gap-2">
             {navItems.map((navItem, idx) => (
-              <SidebarLink key={idx} navItem={navItem} />
+              <MySidebarLink key={idx} navItem={navItem} />
             ))}
           </div>
         </div>

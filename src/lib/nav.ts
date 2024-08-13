@@ -51,7 +51,7 @@ export const getNavItems = () => {
     },
     {
       label: "All Restautants",
-      href: "#",
+      href: "/restaurant",
       icon: IoIosRestaurant,
     },
     {
