@@ -46,7 +46,7 @@ export const getNavItems = () => {
     },
     {
       label: "Bookings",
-      href: "#",
+      href: "/booking",
       icon: FaRegCalendarAlt,
     },
     {
@@ -75,7 +75,7 @@ export const getNavItems = () => {
       icon: FaRegCalendarAlt,
     },
     {
-      label: "Kitchen Order tickets",
+      label: "Kitchen Order Tickets",
       href: "#",
       icon: FaRegCalendarAlt,
     },
