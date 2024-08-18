@@ -71,7 +71,7 @@ export const getNavItems = () => {
     },
     {
       label: "Reservations",
-      href: "#",
+      href: "/reservation",
       icon: FaRegCalendarAlt,
     },
     {
