@@ -1,6 +1,6 @@
 import { IBooking } from "@/interface/booking";
 
-const apiURL = "http://localhost:6005/api/booking";
+const apiURL: string = process.env.NEXT_PUBLIC_URL + "/booking";
 
 export const getAllBookings = async () => {
   const response = await fetch(apiURL);

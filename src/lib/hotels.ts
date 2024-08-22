@@ -1,4 +1,4 @@
-const apiURL = "http://localhost:6005/api/hotel";
+const apiURL = process.env.NEXT_PUBLIC_URL + "/hotel";
 
 export const getAllHotels = async () => {
   const response = await fetch(apiURL);

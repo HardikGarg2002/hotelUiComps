@@ -1,5 +1,6 @@
 import { IRestaurant } from "@/interface/restaurant";
-const apiURL = "http://localhost:6005/api/restaurant";
+
+const apiURL: string = process.env.NEXT_PUBLIC_URL + "/restaurant";
 
 export const getAllRestaurants = async (): Promise<IRestaurant[]> => {
   const response = await fetch(apiURL);

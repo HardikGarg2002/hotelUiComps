@@ -1,5 +1,5 @@
-const apiURL = "http://localhost:6005/api/room";
-const url = "http://localhost:6005/api";
+const url = process.env.NEXT_PUBLIC_URL;
+const apiURL = process.env.NEXT_PUBLIC_URL + "/room";
 
 export const getAllRooms = async () => {
   const response = await fetch(apiURL);
