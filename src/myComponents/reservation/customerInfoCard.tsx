@@ -20,7 +20,9 @@ function CustomerInfoCard() {
         </Avatar>
         <div>
           <h2 className="text-gray-800 text-xl font-semibold">Jane Cooper</h2>
-          <p className="text-gray-600">Nevaeh.Simmons@Example.Com</p>
+          <p className="text-gray-600 tracking-tight text-sm">
+            Nevaeh.Simmons@Example.Com
+          </p>
           <p className="text-gray-600">(270) 555-0117</p>
         </div>
       </div>
