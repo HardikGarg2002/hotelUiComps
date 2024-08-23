@@ -1,4 +1,4 @@
-import { IRoom } from "@/interface/room";
+import { IRoomMeta } from "@/interface/room";
 import { getAllRooms } from "@/lib/room";
 import NavTabs from "@/myComponents/navbars/navTabs";
 import MyTable from "@/myComponents/table/table";
@@ -46,7 +46,7 @@ const RoomsPage = async ({
   const start = (Number(page) - 1) * Number(per_page); // 0, 5, 10 ...
   const end = start + Number(per_page); // 5, 10, 15 ...
 
-  const rooms: IRoom[] = await getAllRooms();
+  const { data: rooms }: IRoomMeta = await getAllRooms();
   const updatedRooms = rooms.slice(start, end);
   const navTabs = ["All", "Available", "Booked", "Blocked", "Maintenance"];
 

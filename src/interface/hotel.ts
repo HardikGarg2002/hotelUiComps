@@ -34,3 +34,10 @@ export interface Reservation {
   checkInDate: Date;
   checkOutDate: Date;
 }
+
+export interface IHotelMeta {
+  data: IHotel[];
+  meta: {
+    total: number;
+  };
+}

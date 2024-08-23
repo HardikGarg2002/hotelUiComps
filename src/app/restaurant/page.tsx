@@ -49,7 +49,7 @@ const RestaurantsPage = async ({
   const start = (Number(page) - 1) * Number(per_page); // 0, 5, 10 ...
   const end = start + Number(per_page); // 5, 10, 15 ...
 
-  const restaurants: IRestaurant[] = await getAllRestaurants();
+  const { data: restaurants } = await getAllRestaurants();
   const updatedRestaurants = restaurants
     ?.slice(start, end)
     .map((restaurant: IRestaurant) => ({

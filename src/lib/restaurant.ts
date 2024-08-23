@@ -1,8 +1,8 @@
-import { IRestaurant } from "@/interface/restaurant";
+import { IRestaurant, IRestaurantMeta } from "@/interface/restaurant";
 
 const apiURL: string = process.env.NEXT_PUBLIC_URL + "/restaurant";
 
-export const getAllRestaurants = async (): Promise<IRestaurant[]> => {
+export const getAllRestaurants = async (): Promise<IRestaurantMeta> => {
   const response = await fetch(apiURL);
   const data = await response.json();
   return data;
