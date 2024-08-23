@@ -34,3 +34,10 @@ export interface IMenuItem {
   description: string;
   images: string[];
 }
+
+export interface IRestaurantMeta {
+  data: IRestaurant[];
+  meta: {
+    total: number;
+  };
+}

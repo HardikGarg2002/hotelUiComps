@@ -1,4 +1,4 @@
-import { IBooking } from "@/interface/booking";
+import { IBooking, IBookingMeta } from "@/interface/booking";
 import { getAllBookings } from "@/lib/booking";
 import MyTable from "@/myComponents/table/table";
 
@@ -45,7 +45,7 @@ const BookingsPage = async ({
   const start = (Number(page) - 1) * Number(per_page); // 0, 5, 10 ...
   const end = start + Number(per_page); // 5, 10, 15 ...
 
-  const bookings: IBooking[] = await getAllBookings();
+  const { data: bookings }: IBookingMeta = await getAllBookings();
   const updatedBookings = bookings.slice(start, end).map((booking: any) => ({
     ...booking,
     guests: booking.guests.map((guest: any) => guest.name).join(", "),
