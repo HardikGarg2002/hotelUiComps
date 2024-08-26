@@ -61,7 +61,7 @@ export const getNavItems = () => {
     },
     {
       label: "Floor and Tables",
-      href: "#",
+      href: "/table",
       icon: IconDesk,
     },
     {

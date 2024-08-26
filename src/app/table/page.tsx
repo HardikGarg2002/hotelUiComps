@@ -1,5 +1,5 @@
-import { IRoomMeta } from "@/interface/room";
-import { getAllRooms } from "@/lib/room";
+import { ITableMeta } from "@/interface/table";
+import { getAllTables } from "@/lib/table";
 import NavTabs from "@/myComponents/navbars/navTabs";
 import MyTable from "@/myComponents/table/table";
 
@@ -9,32 +9,24 @@ const columns = [
     header: "Slug",
   },
   {
-    accessor: "hotel_slug",
+    accessor: "restaurant_slug",
     header: "Managing Hotel",
   },
   {
-    accessor: "room_type",
-    header: "Room Type",
+    accessor: "capacity",
+    header: "Capacity",
   },
   {
     accessor: "status",
     header: "Status",
   },
   {
-    accessor: "price",
-    header: "Price",
+    accessor: "floor",
+    header: "Floor",
   },
-  {
-    accessor: "amenities",
-    header: "Amenities",
-  },
-  //   {
-  //     accessor: "images",
-  //     header: "Images",
-  //   },
 ];
 
-const RoomsPage = async ({
+const TablesPage = async ({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -46,8 +38,8 @@ const RoomsPage = async ({
   const start = (Number(page) - 1) * Number(per_page); // 0, 5, 10 ...
   const end = start + Number(per_page); // 5, 10, 15 ...
 
-  const { data: rooms, meta }: IRoomMeta = await getAllRooms();
-  const updatedRooms = rooms.slice(start, end);
+  const { data: tables, meta }: ITableMeta = await getAllTables();
+  const updatedTables = tables.slice(start, end);
   const navTabs = ["All", "Available", "Booked", "Blocked", "Maintenance"];
 
   return (
@@ -55,7 +47,7 @@ const RoomsPage = async ({
       <NavTabs tabs={navTabs} defaultTab="All" className="w-[60%]" />
       <div className="rounded-xl ">
         <MyTable
-          data={updatedRooms}
+          data={updatedTables}
           columns={columns}
           totalCount={meta.total}
         />
@@ -63,4 +55,4 @@ const RoomsPage = async ({
     </>
   );
 };
-export default RoomsPage;
+export default TablesPage;
