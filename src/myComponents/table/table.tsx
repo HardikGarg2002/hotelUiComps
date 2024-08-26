@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { MyPagination } from "./pagination";
 import { MyTableHeader } from "./tableHeader";
 
-export default function MyTable({ data, columns }: any) {
+export default function MyTable({ data, columns, totalCount }: any) {
   return (
     <>
       <div className="rounded-xl border my-3">
@@ -32,7 +32,7 @@ export default function MyTable({ data, columns }: any) {
           </TableBody>
         </Table>
       </div>
-      <MyPagination totalCount={(data as any[]).length} />
+      <MyPagination totalCount={totalCount} />
     </>
   );
 }
