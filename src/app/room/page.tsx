@@ -1,4 +1,4 @@
-import { IRoomMeta } from "@/interface/room";
+import { IRoomMeta, RoomStatus } from "@/interface/room";
 import { getAllRooms } from "@/lib/room";
 import NavTabs from "@/myComponents/navbars/navTabs";
 import MyTable from "@/myComponents/table/table";
@@ -45,14 +45,20 @@ const RoomsPage = async ({
   // mocked, skipped and limited in the real app
   const start = (Number(page) - 1) * Number(per_page); // 0, 5, 10 ...
   const end = start + Number(per_page); // 5, 10, 15 ...
+  const filters = {
+    status: {
+      eq: searchParams["status"]?.toString().toUpperCase(),
+    },
+  };
+  const { data: rooms, meta }: IRoomMeta = await getAllRooms(filters);
 
-  const { data: rooms, meta }: IRoomMeta = await getAllRooms();
   const updatedRooms = rooms.slice(start, end);
-  const navTabs = ["All", "Available", "Booked", "Blocked", "Maintenance"];
+  const defaultTab = "All";
+  const navTabs = [defaultTab, ...Object.keys(RoomStatus)];
 
   return (
     <>
-      <NavTabs tabs={navTabs} defaultTab="All" className="w-[60%]" />
+      <NavTabs tabs={navTabs} defaultTab={defaultTab} className="w-[70%]" />
       <div className="rounded-xl ">
         <MyTable
           data={updatedRooms}
