@@ -13,7 +13,7 @@ export default function NavTabs({
   return (
     <div
       className={cn(
-        "flex flex-wrap items-center justify-center gap-1 rounded-md bg-violet-950 p-2 ",
+        "flex flex-wrap items-center justify-evenly gap-1 rounded-md bg-violet-950 p-2 ",
         className
       )}
     >
